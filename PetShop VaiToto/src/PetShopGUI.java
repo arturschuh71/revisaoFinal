@@ -1,4 +1,5 @@
 
+import java.text.DecimalFormat;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,7 @@ public class PetShopGUI extends javax.swing.JFrame {
     String raca, porte, sexo;
     int numDeParcelas, idade, opcaoPgamaneto;
     double valorTotal=0;
+    DecimalFormat df;
     
     ImageIcon cachorrocaramelo = new javax.swing.ImageIcon(getClass().getResource("/cachorrocaramelo.png"));
     ImageIcon doberman = new javax.swing.ImageIcon(getClass().getResource("/doberman.jpg"));
@@ -29,6 +31,7 @@ public class PetShopGUI extends javax.swing.JFrame {
      */
     public PetShopGUI() {
         initComponents();
+        df = new DecimalFormat("#.##");
         
     }
 
@@ -334,10 +337,10 @@ public class PetShopGUI extends javax.swing.JFrame {
                 
                 break;
             case 1:
-                valorTotal=valorTotal*1.02;
+                valorTotal=valorTotal+(valorTotal*0.02);
                 break;
             case 2:
-                valorTotal=valorTotal/1.05;
+                valorTotal=valorTotal -(valorTotal *0.05);
                 break;    
         }
         if (valorTotal>=200){
@@ -346,20 +349,20 @@ public class PetShopGUI extends javax.swing.JFrame {
         switch(opParcelas){
             case 0:
                 jtfParcelas.setText("1");
-                jtfValorFinal.setText(""+valorTotal);
+                jtfValorFinal.setText(df.format(valorTotal));
                 break;
             case 1:
                 jtfParcelas.setText("2");
-                jtfValorFinal.setText(""+(valorTotal/2));
+                jtfValorFinal.setText(df.format(valorTotal/2));
                 break;
             case 2:
                 jtfParcelas.setText("3");
-                jtfValorFinal.setText(""+(valorTotal/3));
+                jtfValorFinal.setText(df.format(valorTotal/3));
                 break;    
         }
         }else{
             jtfParcelas.setText("1");
-            jtfValorFinal.setText(""+valorTotal);
+            jtfValorFinal.setText(df.format(valorTotal));
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
