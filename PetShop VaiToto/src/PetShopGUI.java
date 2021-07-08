@@ -337,7 +337,7 @@ public class PetShopGUI extends javax.swing.JFrame {
                 valorTotal=valorTotal*1.02;
                 break;
             case 2:
-                valorTotal=valorTotal*0.05;
+                valorTotal=valorTotal/1.05;
                 break;    
         }
         if (valorTotal>=200){
